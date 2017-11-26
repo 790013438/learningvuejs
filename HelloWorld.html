@@ -4,18 +4,14 @@
     </head>
     <body>
         <div id="app">
-            <h1>{{ message }}</h1>
-            <input v-model="message">
+            <h1>Greetings your Majesty!</h1>
+            <input id="message">
         </div>
     </body>
-    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script>
-        var data = {
-            message: "Greetings your Majesty!"
-        }
-        new Vue({
-            el: '#app',
-            data: data,
+        $('#message').on('keyup', function() {
+            $('h1').text($(this).val());
         });
     </script>
 </html>
