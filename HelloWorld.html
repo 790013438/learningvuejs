@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Hello, Vue</title>
+        <title>Hello Vue</title>
     </head>
     <body>
         <div id="app">
@@ -9,9 +9,10 @@
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script>
-        $('#message').on('keyup', function() {
-            $('h1').text($(this).val());
-        });
+    <script type="text/javascript">
+        $('#message').on('keyup', function(){
+            var message = $('#message').val();
+            $('h1').text(message);
+        })
     </script>
 </html>
