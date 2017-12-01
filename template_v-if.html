@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Hello Vue</title>
+    </head>
+    <body>
+        <div>
+            <template v-if="!message">
+                <h1>You must send a message for help!</h1>
+                <p>Dispatch a messager immediately!</p>
+                <p>To nearby kingdom of Hearts!</p>
+            </template>
+            <textarea v-model="message"></textarea>
+            <button v-show="message">
+                Send for alias help!
+            </button>
+            <pre>
+                {{ $data | json }}
+            </pre>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+    <script>
+        new Vue({
+            el: 'body',
+            data: {
+                message: 'Our kind is dead. Send for help!',
+            },
+        });
+    </script>
+</html>
+
