@@ -4,32 +4,33 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <div id="app">
-            <div class="container">
-                <template v-if="title">
-                    <h1 v-show="title == 'male'">Hello, Mister {{ name }}</h1>
-                    <h1 v-show="title == 'female'">Hello, Miss {{ name }}</h1>
-                </template>
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="title">Enter your gender:</label>
-                        <input v-model="title" type="text" class="form-control"/>
-                        <span v-if="title && title != 'male' && title != 'female'">Enter a valid gender,human.</span>
-                        <label for="name">Enter your name:</label>
-                        <input v-model="name" type="text" placeholder="" class="form-control"/>
-                    </div>
-                </form>
-            </div>
-            <pre>{{ $data | json }}</pre>
+        <div class="container">
+            <!-- the || is the logical operator OR -->
+            <template v-if="gender == 'male' || gender == 'female'">
+                <h1>Hello,
+                    <!-- render span if 'gender' equals to 'male' -->
+                    <span v-show="gender == 'male'">Mister {{ name }}.</span>
+                    <!-- render span if 'gender' equals to 'female' -->
+                    <span v-if="gender == 'female'">Miss {{ name }}.</span>
+                </h1>
+            </template>
+            <!-- v-else immediately follows v-if block to work -->
+            <h1 v-else>So you can't decide. Fine!</h1>
+            <!-- show inputs -->
+            <label for="gender">Enter your gender:</label>
+            <input v-model="gender" type="text" class="form-control"/>
+            <label for="name">Enter your name:</label>
+            <input v-model="name" type="text" placeholder="" class="form-control"/>
         </div>
+        <pre>{{ $data | json }}</pre>
     </body>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
     <script>
         new Vue({
-            el: '#app',
+            el: 'body',
             data: {
-                name: '',
-                title: '',
+                name: 'Floyd',
+                gender: 'male',
             },
         });
     </script>
