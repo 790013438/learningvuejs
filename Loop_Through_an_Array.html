@@ -9,7 +9,7 @@
             <div>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="story in stories">
-                        Someone said "{{ story }}"
+                        {{ story.writer }} say "{{ story.plot }}"
                     </li>
                 </ul>
             </div>
@@ -24,9 +24,18 @@
             el: '.container',
             data: {
                 stories: [
-                    "I crashed my car today!",
-                    "Yesterday, some stole my bag!",
-                    "Someone ate my chocolate...",
+                    {
+                        plot: "I crashed my car today!",
+                        writer: "Alex",
+                    },
+                    {
+                        plot: "Yesterday, some stole my bag!",
+                        writer: "John",
+                    },
+                    {
+                        plot: "Someone ate my chocolate...",
+                        writer: "John",
+                    },
                 ],
             },
         });
