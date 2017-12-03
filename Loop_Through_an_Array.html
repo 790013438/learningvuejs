@@ -8,8 +8,8 @@
             <h1>Let's hear some stories!</h1>
             <div>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="story in stories">
-                        {{ story.writer }} say "{{ story.plot }}"
+                    <li class="list-group-item" v-for="(index, story) in stories">
+                        {{ index }} {{ story.writer }} said "{{ story.plot }}"
                     </li>
                 </ul>
             </div>
@@ -26,15 +26,15 @@
                 stories: [
                     {
                         plot: "I crashed my car today!",
-                        writer: "Alex",
+                        writer: "Alex"
                     },
                     {
                         plot: "Yesterday, some stole my bag!",
-                        writer: "John",
+                        writer: "John"
                     },
                     {
                         plot: "Someone ate my chocolate...",
-                        writer: "John",
+                        writer: "John"
                     },
                 ],
             },
