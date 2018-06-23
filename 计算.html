@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>compute</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="increase">Click me</button>
+      <p>{{ counter }}</p>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        },
+        methods: {
+          increase: function() {
+            this.counter++
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
