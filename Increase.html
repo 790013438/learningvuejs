@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Increase</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="increase">Increase</button>
+      <p>Counter: {{ counter }}</p>
+      <p>Result: {{ result }}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          counter: 0,
+          result: ''
+        },
+        methods: {
+          increase: function() {
+            this.counter++;
+            this.result = this.counter > 5 ? 'Greate 5' : 'Samller 5'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
