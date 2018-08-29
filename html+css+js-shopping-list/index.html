@@ -5,7 +5,12 @@
     <title>Shopping List</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <style></style>
+    <style>
+      .container {
+        width: 40%;
+        margin: 20px auto 0px auto;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -14,6 +19,8 @@
         <input placeholder="add shopping list item"
                type="text" class="js-new-item form-control"/>
         <span class="input-group-btn">
+          <button @click="addItem" class="js-add btn btn-default"
+                                   type="button">Add!</button>
           <button @click="addItem" class="js-add btn btn-default"
                                    type="button">Add!</button>
         </span>
