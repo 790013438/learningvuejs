@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="pronouns">
+      <p><strong>Check yourself :)</strong></p>
+      <textarea class="textarea" v-model="text" v-on:keyup="checkText"></textarea><i v-bind:class="{ 'correct': correct, 'incorrect': !correct }"></i>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+  <script>
+    var initialText, correctText;
+
+    initialText = 'Me is sad because he is more clever than I.';
+    correctText = 'I am sad because he is more clever than me.';
+
+    var data = {
+      text: initialText,
+      correct: false
+    }
+
+    new Vue({
+      el: '#pronouns',
+      data: data,
+      methods: {
+        checkText: function () {
+          var text;
+          text = this.text.trim();
+          this.correct = text === correctText;
+        }
+      }
+    });
+  </script>
+</html>
