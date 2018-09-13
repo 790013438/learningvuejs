@@ -24,15 +24,22 @@
     class="demo"
     @click="attachRed = !attachRed"
     :class="{red : attachRed}"></div>
-  <div class="demo"></div>
-  <div class="demo"></div>
+  <div class="demo"
+       :class="{red: attachRed,
+                blue: mouseenterBlue}"></div>
+  <div
+    class="demo"
+    @mouseenter="mouseenterBlue = !mouseenterBlue"
+    @mouseout="mouseenterBlue = !mouseenterBlue"
+    :class="{blue: mouseenterBlue}"></div>
 </div>
 
 <script>
 new Vue({
   el: '#app',
   data: {
-    attachRed: false
+    attachRed: false,
+    mouseenterBlue: false
   }
 });
 </script>
