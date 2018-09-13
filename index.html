@@ -23,15 +23,20 @@
   <div
     class="demo"
     @click="attachRed = !attachRed"
-    :class="{red : attachRed}"></div>
+    :class="{red : attachRed,
+             green: mouseGreen}"></div>
   <div class="demo"
+       @mouseenter="mouseGreen = !mouseGreen"
+       @mouseout="mouseGreen = !mouseGreen"
        :class="{red: attachRed,
-                blue: mouseenterBlue}"></div>
+                blue: mouseenterBlue,
+                green: mouseGreen}"></div>
   <div
     class="demo"
     @mouseenter="mouseenterBlue = !mouseenterBlue"
     @mouseout="mouseenterBlue = !mouseenterBlue"
-    :class="{blue: mouseenterBlue}"></div>
+    :class="{blue: mouseenterBlue,
+             green: mouseGreen}"></div>
 </div>
 
 <script>
@@ -39,7 +44,8 @@ new Vue({
   el: '#app',
   data: {
     attachRed: false,
-    mouseenterBlue: false
+    mouseenterBlue: false,
+    mouseGreen: false
   }
 });
 </script>
