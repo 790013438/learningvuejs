@@ -44,20 +44,23 @@ new Vue({
       if (this.second !== 0) {
         this.second--;
         return;
-      }
-      // if second is 0 and minute is not 0, decrement minute and set second to 59
-      if (this.minute !== 0) {
-        this.minute--;
-        this.second = 59;
-        return;
-      }
-
-      // if second is 0 and minute is 0, toggle working/resting intervals
-      this.pomodoroState = this.pomodoroState === POMODORO_STATES.WORK ? POMODORO_STATES.REST : POMODORO_STATES.WORK;
-      if (this.pomodoroState === POMODORO_STATES.WORK) {
-        this.minute = WORKING_TIME_LENGTH_IN_MINUTES;
       } else {
-        this.minute = RESTING_TIME_LENGTH_IN_MINUTES;
+        // else if second is 0 and minute is not 0, decrement minute and set second to 59
+        if (this.minute !== 0) {
+          this.minute--;
+          // 分钟减一后，秒钟重新计数
+          this.second = 59;
+          return;
+        } else {
+
+          // if second is 0 and minute is 0, toggle working/resting intervals
+          this.pomodoroState = this.pomodoroState === POMODORO_STATES.WORK ? POMODORO_STATES.REST : POMODORO_STATES.WORK;
+          if (this.pomodoroState === POMODORO_STATES.WORK) {
+            this.minute = WORKING_TIME_LENGTH_IN_MINUTES;
+          } else {
+            this.minute = RESTING_TIME_LENGTH_IN_MINUTES;
+          }
+        }
       }
     }
   }
