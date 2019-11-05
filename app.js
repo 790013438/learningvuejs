@@ -1,6 +1,7 @@
 new Vue({
   el: '#app',
   data: {
-    show: true
+    show: true,
+    ingredients: ['meat', 'fruit', 'cookies']
   }
 });

@@ -5,6 +5,10 @@
   <p v-else>Now you see me!</p>
   <p v-show="show">Do you also see me?</p>
   <button @click="show = !show">Switch</button>
+  <hr/>
+  <ul>
+    <li v-for="ingredient in ingredients">{{ingredient}}</li>
+  </ul>
 </div>
 
 <script src="app.js"></script>
