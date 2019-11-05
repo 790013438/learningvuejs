@@ -38,9 +38,10 @@
   <div class="demo"></div>
 
   <div class="demo" :style="{backgroundColor: color}"></div>
-  <div class="demo"></div>
+  <div class="demo" :style="myStyle"></div>
   <div class="demo"></div>
   <input type="text" v-model="color"/>
+  <input type="text" v-model="width"/>
 </div>
 
 <script>
@@ -48,7 +49,8 @@ new Vue({
   el: '#app',
   data: {
     attachRed: false,
-    color: 'orange'
+    color: '#4caf50',
+    width: 100
   },
   computed: {
     divClasses: function() {
@@ -56,6 +58,12 @@ new Vue({
         red: this.attachRed,
         blue: !this.attachRed
       }
+    },
+    myStyle: function() {
+      return {
+        'background-color': this.color,
+        width: this.width + 'px'
+      };
     }
   }
 });
