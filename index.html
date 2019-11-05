@@ -37,7 +37,7 @@
   <div class="demo" :class="{red: attachRed}"></div>
   <div class="demo"></div>
 
-  <div class="demo" :style="{'background-color': color}"></div>
+  <div class="demo" :style="{backgroundColor: color}"></div>
   <div class="demo"></div>
   <div class="demo"></div>
   <input type="text" v-model="color"/>
@@ -48,7 +48,7 @@ new Vue({
   el: '#app',
   data: {
     attachRed: false,
-    color: 'blue'
+    color: 'orange'
   },
   computed: {
     divClasses: function() {
