@@ -15,6 +15,11 @@
   .blue {
     background-color: blue;
   }
+  #app {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+  }
 </style>
 <script src="https://unpkg.com/vue/dist/vue.js">
 </script>
@@ -26,13 +31,18 @@
     :class="divClasses"></div>
   <div class="demo" :class="{red: attachRed}"></div>
   <div class="demo"></div>
+
+  <div class="demo" :style="{'background-color': color}"></div>
+  <div class="demo"></div>
+  <div class="demo"></div>
 </div>
 
 <script>
 new Vue({
   el: '#app',
   data: {
-    attachRed: false
+    attachRed: false,
+    color: 'blue'
   },
   computed: {
     divClasses: function() {
