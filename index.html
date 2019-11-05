@@ -20,6 +20,11 @@
     flex-wrap: wrap;
     width: 400px;
   }
+  [type='text'] {
+    height: 32px;
+    margin: 10px;
+    align-self: center;
+  }
 </style>
 <script src="https://unpkg.com/vue/dist/vue.js">
 </script>
@@ -35,6 +40,7 @@
   <div class="demo" :style="{'background-color': color}"></div>
   <div class="demo"></div>
   <div class="demo"></div>
+  <input type="text" v-model="color"/>
 </div>
 
 <script>
