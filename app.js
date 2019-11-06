@@ -35,6 +35,10 @@ setInterval(function() {
   vm1.show();
 }, 3000);
 
+Vue.component('hello', {
+  template: '<h1>Hello</h1>'
+});
+
 let vm2 = new Vue({
   el: '#app2',
   data: {
