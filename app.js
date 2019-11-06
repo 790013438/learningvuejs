@@ -25,6 +25,10 @@ let vm1 = new Vue({
   }
 });
 
+setInterval(function() {
+  vm1.title = 'Changed by timer'
+}, 3000);
+
 let vm2 = new Vue({
   el: '#app2',
   data: {
