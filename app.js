@@ -12,17 +12,17 @@ new Vue({
       this.monsterHealth = 100;
     },
     attack: function() {
-      if (this.playerHealth > 0 && this.monsterHealth > 0) {
-        this.playerHealth -= this.caculateDamage(4, 10);
-        if (this.checkWin()) {
-          return;
-        }
-
-        this.monsterHealth -= this.caculateDamage(3, 10);
-        this.checkWin()
+      this.playerHealth -= this.caculateDamage(4, 10);
+      if (this.checkWin()) {
+        return;
       }
+
+      this.monsterHealth -= this.caculateDamage(3, 10);
+      this.checkWin()
     },
-    specialAttack: function(){},
+    specialAttack: function(){
+
+    },
     heal: function(){},
     giveUp: function(){
       this.startGame();
