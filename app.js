@@ -1,9 +1,11 @@
+let data = {
+  title: 'The VueJS Instance',
+  showParagraph: false
+}
+
 let vm1 = new Vue({
   el: '#app1',
-  data: {
-    title: 'The VueJS Instance',
-    showParagraph: false
-  },
+  data: data,
   methods: {
     show: function() {
       this.showParagraph = true;
@@ -25,6 +27,7 @@ let vm1 = new Vue({
   }
 });
 vm1.newProp = 'obb'
+console.log(data === vm1.$data);
 
 setInterval(function() {
   vm1.title = 'Changed by timer';
