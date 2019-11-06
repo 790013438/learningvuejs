@@ -24,9 +24,11 @@ let vm1 = new Vue({
     }
   }
 });
+vm1.newProp = 'obb'
 
 setInterval(function() {
-  vm1.title = 'Changed by timer'
+  vm1.title = 'Changed by timer';
+  vm1.show();
 }, 3000);
 
 let vm2 = new Vue({
