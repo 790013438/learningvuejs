@@ -26,7 +26,12 @@ new Vue({
       this.monsterAttack();
     },
     specialAttack: function(){
-      this.monsterHealth -= this.caculateDamage(4, 15);
+      let damage = this.caculateDamage(4, 15);
+      this.monsterHealth -= damage;
+      this.turns.unshift({
+        isPlayer: true,
+        text: 'Player hits monster hard for '.toUpperCase() + damage
+      });
       if(this.checkWin()){
         return;
       }
@@ -48,6 +53,10 @@ new Vue({
         } else {
           this.playerHealth = 100;
         }
+        this.turns.unshift({
+          isPlayer: true,
+          text: 'Player heals for 10'
+        });
         this.monsterAttack();
       }
     },
