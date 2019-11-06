@@ -4,7 +4,6 @@ let data = {
 }
 
 let vm1 = new Vue({
-  el: '#app1',
   data: data,
   methods: {
     show: function() {
@@ -28,7 +27,8 @@ let vm1 = new Vue({
 });
 vm1.newProp = 'obb'
 console.log(data === vm1.$data);
-vm1.$refs.heading.innerHTML = 'Wow'
+vm1.$mount('#app1');
+vm1.$refs.heading.innerHTML = 'Wow';
 
 setInterval(function() {
   vm1.title = 'Changed by timer';
