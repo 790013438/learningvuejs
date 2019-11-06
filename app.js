@@ -28,6 +28,7 @@ let vm1 = new Vue({
 });
 vm1.newProp = 'obb'
 console.log(data === vm1.$data);
+vm1.$refs.heading.innerHTML = 'Wow'
 
 setInterval(function() {
   vm1.title = 'Changed by timer';
@@ -41,7 +42,8 @@ let vm2 = new Vue({
   },
   methods: {
     changeVue1: function() {
-      vm1.title = 'Chaned by Vue 2'
+      vm1.title = 'Chaned by Vue 2';
+      this.$refs.myButton.innerHTML = 'test';
     }
   }
 });
