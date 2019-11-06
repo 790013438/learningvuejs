@@ -47,3 +47,9 @@ let vm2 = new Vue({
     }
   }
 });
+
+let vm3 = new Vue({
+  template: '<h1>Hello</h1>'
+});
+
+vm3.$mount('#app3');
