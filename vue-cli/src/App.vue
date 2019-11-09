@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// 提供data数据供其他js使用
   export default {
   }
 </script>
