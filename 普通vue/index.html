@@ -2,17 +2,23 @@
 
 <div id="app">
   <my-cmp></my-cmp>
+  <hr/>
   <my-cmp></my-cmp>
 </div>
 
 <script>
+// var data = {status: 'Critical'}
+// 不能在外部定义data，这样会使改变的时候改变所有的值，引用指向的同一个内存
 Vue.component('my-cmp', {
   data: function(){
-    return {
-      status: 'Critical'
-    }
+    return {status: 'Critical'};
   },
-  template: '<p>Server Status: {{ status }}</p>'
+  template: '<p>Server Status: {{ status }}(<button @click="changeStatus">Change</button>)</p>',
+  methods: {
+    changeStatus: function() {
+      this.status = 'normal';
+    }
+  }
 });
 new Vue({
   el: '#app'
