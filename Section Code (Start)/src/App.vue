@@ -1,14 +1,8 @@
 <template>
-  <p>Server status: {{ status }}</p>
+  <app_server_status></app_server_status>
 </template>
 
-<script>
-export default {
-  data: function() {
-    return {status: 'Critical'}
-  }
-}
-</script>
+<script></script>
 
 <style>
 

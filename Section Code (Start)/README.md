@@ -28,3 +28,12 @@ Vue.component('html中的名字', {
   template: '模板名字'
 });
 ```
+
+# render: h => h(App) 使用局部组件component
+```vue
+new Vue({
+  el: '#app',
+  // 使用模板component App.vue
+  render: h => h(App)
+})
+```
