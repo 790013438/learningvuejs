@@ -1,12 +1,6 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <header>
-                    <h1>Server Status</h1>
-                </header>
-            </div>
-        </div>
+        <app-header></app-header>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
@@ -23,17 +17,23 @@
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-12">
-                <footer>
-                    <p>All Servers are managed here</p>
-                </footer>
-            </div>
-        </div>
+        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
+import AppHeader from './AppHeader.vue'
+import AppFooter from './AppFooter.vue'
+import Vue from 'vue'
+
+// Vue.component('app-header', AppHeader); 全局注册
+// Vue.component('app-footer', AppFooter);
+export default {
+  components: {
+    'app-header':AppHeader,
+    'app-footer': AppFooter
+  }
+}
 </script>
 
 <style>
