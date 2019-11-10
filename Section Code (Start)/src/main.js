@@ -3,7 +3,7 @@ import App from './App.vue'
 import Home from './Home.vue'
 
 // 全局注册组件component
-Vue.component('app_server_status', Home)
+Vue.component('app_servers', Home)
 
 new Vue({
   el: '#app',

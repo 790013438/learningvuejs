@@ -1,5 +1,5 @@
 <template>
-  <app_server_status></app_server_status>
+  <app_servers></app_servers>
 </template>
 
 <script></script>
