@@ -11,7 +11,7 @@ export default {
   props: {
     userName: {
       type: [String, Array],
-      required: true
+      default: 'Max'
     }
   },
   methods: {
