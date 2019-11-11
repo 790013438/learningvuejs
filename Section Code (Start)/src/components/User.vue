@@ -4,6 +4,7 @@
         <p>I'm an awesome User!</p>
         <span>{{userName}}</span>
         <button @click="changeUserName">change User Name</button>
+        <p>Age is {{userAge}}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
@@ -25,6 +26,7 @@
 <script>
     import UserDetail from './UserDetail.vue';
     import UserEdit from './UserEdit.vue';
+    import {eventBus} from '../main.js'
 
     export default {
         data: function() {

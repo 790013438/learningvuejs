@@ -3,13 +3,15 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ switchName() }}</p>
-        <p>User Age: {{userAge}}</p>
+        <p>User Age: {{age}}</p>
         <button @click="resetName">reset User Name</button>
         <button @click="resetFn(newName)">通过绑定函数改变数据</button>
     </div>
 </template>
 
 <script>
+import {eventBus} from '../main.js'
+
 export default {
   props: {
     userName: {
@@ -22,7 +24,8 @@ export default {
   data: function(){
     return {
       name: this.userName,
-      newName: '蝉鸣'
+      newName: '蝉鸣',
+      age: this.userAge
     }
   },
   methods: {
@@ -33,6 +36,11 @@ export default {
       this.name = 'Anna';
       this.$emit('resetUserName', this.name);
     }
+  },
+  created() {
+    eventBus.$on('userAgeWasChanged', (age)=> {
+      this.age = age;
+    });
   }
 }
 </script>
