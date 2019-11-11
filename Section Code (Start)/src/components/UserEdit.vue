@@ -18,7 +18,7 @@ export default {
   methods: {
     changeUserAge: function() {
       this.age = 27;
-      eventBus.$emit('userAgeWasChanged', this.age);
+      eventBus.sendChangeAge(this.age)
     }
   }
 }
