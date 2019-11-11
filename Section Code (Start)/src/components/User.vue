@@ -9,11 +9,14 @@
             <div class="col-xs-12 col-sm-6">
                 <app-user-detail
                   :userName="userName"
+                  :userAge="userAge"
                   @resetUserName="userName = $event"
                   :resetFn="resetName"></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit
+                  :userAge="userAge"
+                  @userAgeWasChanged="userAge = $event"></app-user-edit>
             </div>
         </div>
     </div>
@@ -25,7 +28,10 @@
 
     export default {
         data: function() {
-          return {userName: 'Floyd'};
+          return {
+            userName: 'Floyd',
+            userAge: 30
+          };
         },
         methods: {
           changeUserName: function(){

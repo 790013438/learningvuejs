@@ -2,10 +2,24 @@
     <div class="component">
         <h3>You may edit the User here</h3>
         <p>Edit me!</p>
+        <p>user Age: {{age}}</p>
+        <button @click="changeUserAge">change User Age</button>
     </div>
 </template>
 
 <script>
+export default {
+  props: ['userAge'],
+  data: function() {
+    return {age: this.userAge};
+  },
+  methods: {
+    changeUserAge: function() {
+      this.age = 27;
+      this.$emit('userAgeWasChanged', this.age);
+    }
+  }
+}
 </script>
 
 <style scoped>

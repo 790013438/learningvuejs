@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ switchName() }}</p>
+        <p>User Age: {{userAge}}</p>
         <button @click="resetName">reset User Name</button>
         <button @click="resetFn(newName)">通过绑定函数改变数据</button>
     </div>
@@ -15,7 +16,8 @@ export default {
       type: [String, Array],
       default: 'Max'
     },
-    resetFn: [Function]
+    resetFn: [Function],
+    userAge: Number
   },
   data: function(){
     return {
