@@ -9,7 +9,10 @@
 <script>
 export default {
   props: {
-    userName: [String, Array]
+    userName: {
+      type: [String, Array],
+      required: true
+    }
   },
   methods: {
     switchName: function() {
