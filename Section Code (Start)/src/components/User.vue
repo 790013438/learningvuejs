@@ -7,7 +7,10 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :userName="userName" @resetUserName="userName = $event"></app-user-detail>
+                <app-user-detail
+                  :userName="userName"
+                  @resetUserName="userName = $event"
+                  :resetFn="resetName"></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -27,6 +30,9 @@
         methods: {
           changeUserName: function(){
             this.userName = 'Manhattan';
+          },
+          resetName: function(arg) {
+            this.userName = arg
           }
         },
         components: {

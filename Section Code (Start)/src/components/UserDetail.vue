@@ -4,6 +4,7 @@
         <p>Many Details</p>
         <p>User Name: {{ switchName() }}</p>
         <button @click="resetName">reset User Name</button>
+        <button @click="resetFn(newName)">通过绑定函数改变数据</button>
     </div>
 </template>
 
@@ -13,11 +14,13 @@ export default {
     userName: {
       type: [String, Array],
       default: 'Max'
-    }
+    },
+    resetFn: [Function]
   },
   data: function(){
     return {
-      name: this.userName
+      name: this.userName,
+      newName: '蝉鸣'
     }
   },
   methods: {
