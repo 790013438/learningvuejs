@@ -15,13 +15,18 @@ export default {
       default: 'Max'
     }
   },
+  data: function(){
+    return {
+      name: this.userName
+    }
+  },
   methods: {
     switchName: function() {
       return this.userName.split("").reverse().join("");
     },
     resetName: function() {
-      this.userName = 'floyd';
-      this.$emit('resetUserName', this.userName);
+      this.name = 'Anna';
+      this.$emit('resetUserName', this.name);
     }
   }
 }
