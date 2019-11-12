@@ -9,6 +9,7 @@
         <hr>
         <keep-alive>
           <component :is="selectComponent">
+          <template v-slot:header><span style="color:#000094">Blue Title</span></template>
           </component>
         </keep-alive>
       </div>
