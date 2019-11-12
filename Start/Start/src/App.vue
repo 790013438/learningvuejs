@@ -10,6 +10,7 @@
         <keep-alive>
           <component :is="selectComponent">
           <template v-slot:header><span style="color:#000094">Blue Title</span></template>
+          <template><p>This is the Content</p></template>
           </component>
         </keep-alive>
       </div>
@@ -35,6 +36,3 @@
       }
     }
 </script>
-
-<style>
-</style>

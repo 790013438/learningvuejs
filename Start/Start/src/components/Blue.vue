@@ -3,6 +3,9 @@
     <header>
       <slot name="header"></slot>
     </header>
+    <container>
+      <slot></slot>
+    </container>
   </div>
 </template>
 
@@ -27,5 +30,8 @@ export default {
         padding: 30px;
         margin: 20px auto;
         text-align: center
+    }
+    p {
+      padding-top: 2.4rem;
     }
 </style>
