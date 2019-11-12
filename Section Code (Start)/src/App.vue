@@ -6,7 +6,8 @@
           <template v-slot:title>
             <h1>{{quoteTitle}}</h1>
           </template>
-          <template v-slot:body>
+          <template v-slot:subtitle>a subtitle</template>
+          <template>
             <p>A wonderful Quote</p>
           </template>
         </app-quote>

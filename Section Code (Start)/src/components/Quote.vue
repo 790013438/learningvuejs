@@ -2,9 +2,10 @@
   <div>
     <div>
       <slot name="title"></slot>
+      <span style="color: #ccc"><slot name="subtitle"></slot></span>
     </div>
     <div>
-      <slot name="body"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
