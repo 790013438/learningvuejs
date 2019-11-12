@@ -3,8 +3,12 @@
     <div class="row">
       <div class="col-xs-12">
         <app-quote>
-          <h1>{{quoteTitle}}</h1>
-          <p>A wonderful Quote</p>
+          <template v-slot:title>
+            <h1>{{quoteTitle}}</h1>
+          </template>
+          <template v-slot:body>
+            <p>A wonderful Quote</p>
+          </template>
         </app-quote>
       </div>
     </div>
