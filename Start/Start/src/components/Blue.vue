@@ -3,7 +3,17 @@
 </template>
 
 <script>
-
+export default {
+  destroyed: function() {
+    console.log('destroyed!');
+  },
+  deactivated: function() {
+    console.log('deactivated!');
+  },
+  activated: function() {
+    console.log('activated');
+  }
+}
 </script>
 
 <style scoped>
