@@ -23,4 +23,7 @@ p {
   align-items: center;
   justify-content: center;
 }
+h1 {
+  color: lightRed
+}
 </style>
