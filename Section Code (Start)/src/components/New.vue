@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>New</p>
     <h2>The New</h2>
     <button @click="count++">Increase</button>
     <p>{{count}}</p>
@@ -16,6 +15,12 @@ export default {
   },
   destroyed: function() {
     console.log('destroyed!');
+  },
+  deactivated: function() {
+    console.log('deactivated!');
+  },
+  activated: function() {
+    console.log('activated');
   }
 }
 </script>
