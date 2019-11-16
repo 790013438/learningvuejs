@@ -88,11 +88,11 @@
           <select
             id="priority"
             class="form-control">
-            <option></option>
+            <option v-for="priority in prioritys" :priority="High">{{ priority }}</option>
           </select>
+          <appSwitch v-model="dataSwitch" @switched="dataSwitch = $event"></appSwitch>
         </div>
       </div>
-      <appSwitch v-model="dataSwitch" @switched="dataSwitch = $event"></appSwitch>
       <hr>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -142,6 +142,7 @@ export default {
       message: 'A new Text',
       sendMail: [],
       gender: 'Male',
+      prioritys: ['High', 'Mediel', 'Low'],
       dataSwitch: false
     };
   },
