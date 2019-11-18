@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <div class="choice">
-      <div class="box hoverYes"
-           :class="{yes:isSwitched}"
+      <div id="yes"
+           :class="{active:isSwitched}"
            @click="switchStatus(true)">Yes</div>
-      <div class="box leftBorder hoverNo"
-           :class="{no:!isSwitched}"
+      <div id="no" class="leftBorder"
+           :class="{active:!isSwitched}"
            @click="switchStatus(false)">No</div>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
   margin: 15px;
   width: 77px;
 }
-.box {
+#yes, #no {
   text-align: center;
   width: 100%;
   height: 100%;
@@ -45,16 +45,10 @@ export default {
 .leftBorder {
   border-left: 1px solid black;
 }
-.yes {
+#yes.active, #yes:hover {
   background-color: lightskyblue;
 }
-.no {
-  background-color: lightcoral;
-}
-.hoverYes:hover {
-  background-color: lightskyblue;
-}
-.hoverNo:hover {
+#no.active, #no:hover {
   background-color: lightcoral;
 }
 </style>
