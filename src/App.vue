@@ -19,6 +19,7 @@
             <label>Password</label>
             <input class="form-control" type="password"
             v-model.lazy="password"/>
+            <appStoreDataChoose :switched="switched" @switched="switched = $event"></appStoreDataChoose>
           </div>
           <button @click.prevent="submit">Submit</button>
           <!-- Exercise 2 -->
@@ -42,7 +43,7 @@
             <p>Full Name: {{fullName}}</p>
             <p>Mail: {{email}} </p>
             <p>Password: {{password}} </p>
-            <p>Store in Database?: {{isSubmited}}</p>
+            <p>Store in Database?: {{switched}}</p>
           </div>
         </div>
       </div>
@@ -52,6 +53,7 @@
 
 <script>
 import FullName from './components/FullName.vue'
+import StoreDataChoose from './components/StoreDataChoose.vue'
 
 export default {
   data: function() {
@@ -59,6 +61,7 @@ export default {
       fullName: '',
       email: '',
       password: '',
+      switched: false,
       isSubmited: false
     };
   },
@@ -68,7 +71,8 @@ export default {
     }
   },
   components: {
-    appFullName: FullName
+    appFullName: FullName,
+    appStoreDataChoose: StoreDataChoose
   }
 }
 </script>
