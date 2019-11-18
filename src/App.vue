@@ -9,13 +9,11 @@
           <!-- Mail -->
           <!-- Password -->
           <!-- Store Data? Yes/No -->
-          <div>
-            <label>Full Name</label>
-            <input type="text"/>
-          </div>
-          <div>
+          <appFullName @fullNameChanged="fullName = $event"></appFullName>
+          <div class="form-group">
             <label>Mail</label>
-            <input type="mail"/>
+            <input class="form-control" type="mail"
+              v-model="email"/>
           </div>
 
           <!-- Exercise 2 -->
@@ -36,8 +34,8 @@
             <h4>Your Data</h4>
           </div>
           <div class="panel-body">
-            <p>Full Name: </p>
-            <p>Mail: </p>
+            <p>Full Name: {{fullName}}</p>
+            <p>Mail: {{email}} </p>
             <p>Password: </p>
             <p>Store in Database?: </p>
           </div>
@@ -48,7 +46,18 @@
 </template>
 
 <script>
+import FullName from './components/FullName.vue'
+
 export default {
+  data: function() {
+    return {
+      fullName: '',
+      email: ''
+    };
+  },
+  components: {
+    appFullName: FullName
+  }
 }
 </script>
 
