@@ -15,6 +15,11 @@
             <input class="form-control" type="mail"
               v-model="email"/>
           </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" type="password"
+            v-model.lazy="password"/>
+          </div>
 
           <!-- Exercise 2 -->
           <!-- Only display the Form if it has NOT been submitted -->
@@ -36,7 +41,7 @@
           <div class="panel-body">
             <p>Full Name: {{fullName}}</p>
             <p>Mail: {{email}} </p>
-            <p>Password: </p>
+            <p>Password: {{password}} </p>
             <p>Store in Database?: </p>
           </div>
         </div>
@@ -52,7 +57,8 @@ export default {
   data: function() {
     return {
       fullName: '',
-      email: ''
+      email: '',
+      password: ''
     };
   },
   components: {
