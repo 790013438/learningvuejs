@@ -12,7 +12,7 @@
           <appFullName @fullNameChanged="fullName = $event"></appFullName>
           <div class="form-group">
             <label>Mail</label>
-            <input class="form-control" type="mail"
+            <input class="form-control" type="email"
               v-model="email"/>
           </div>
           <div class="form-group">
@@ -21,7 +21,11 @@
             v-model.lazy="password"/>
             <appStoreDataChoose :switched="switched" @switched="switched = $event"></appStoreDataChoose>
           </div>
-          <button @click.prevent="submit">Submit</button>
+          <div class="form-group">
+            <label><input type="radio" value="Yes" v-model="storeData">Yes</label>
+            <label><input type="radio" value="No" v-model="storeData">No</label>
+          </div>
+          <button @click.prevent="submit" class="btn btn-primary">Submit</button>
           <!-- Exercise 2 -->
           <!-- Only display the Form if it has NOT been submitted -->
           <!-- Display the Data Summary ONCE the Form HAS been submitted -->
@@ -44,6 +48,7 @@
             <p>Mail: {{email}} </p>
             <p>Password: {{password}} </p>
             <p>Store in Database?: {{switched}}</p>
+            <p>Store in Data?: {{storeData}}</p>
           </div>
         </div>
       </div>
@@ -62,7 +67,8 @@ export default {
       email: '',
       password: '',
       switched: false,
-      isSubmited: false
+      isSubmited: false,
+      storeData: 'No'
     };
   },
   methods: {
