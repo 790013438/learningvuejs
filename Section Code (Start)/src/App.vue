@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Cunstom Directives</h1>
-        <p v-highlight>Some text</p>
+        <p v-highlight="lightcoral">Color this</p>
       </div>
     </div>
   </div>
