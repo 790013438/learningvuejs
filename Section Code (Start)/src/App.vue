@@ -12,7 +12,7 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Cunstom Directives</h1>
         <p v-highlight:backgroundColor="'lightcoral'">Color this</p>
-        <p v-local-highlight:backgroundColor.blink="'lightcoral'">Local Color</p>
+        <p v-local-highlight:backgroundColor.blink="{mainColor: 'lightcoral', secondColor: 'green', delay: 500}">Local Color</p>
       </div>
     </div>
   </div>
@@ -28,8 +28,8 @@ export default {
           delay = 3000;
         }
         if (binding.modifiers['blink']) {
-          let mainColor = binding.value;
-          let secondColor = 'blue';
+          let mainColor = binding.value.mainColor;
+          let secondColor = binding.value.secondColor;
           let currColor = mainColor;
           setInterval(()=>{
             currColor === mainColor ? currColor = secondColor : currColor = mainColor;
@@ -40,13 +40,13 @@ export default {
                 el.style.color = currColor;
               }
             }, delay);
-          }, 1000);
+          }, binding.value.delay);
         }
         setTimeout(()=>{
           if (binding.arg === 'backgroundColor') {
-            el.style.backgroundColor = binding.value;
+            el.style.backgroundColor = binding.value.mainColor;
           } else {
-            el.style.color = binding.value;
+            el.style.color = binding.value.secondColor;
           }
         }, delay);
       }
