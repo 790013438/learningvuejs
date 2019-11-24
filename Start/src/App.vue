@@ -5,7 +5,11 @@
         <h1>Directives Exercise</h1>
         <!-- Exercise -->
         <!-- Build a Custom Directive which works like v-on (Listen for Events) -->
-        <button v-myon:click="clicked">Custom click</button>
+        <button v-myon:click="clicked" class="btn btn-primary">Custom click</button>
+        <hr/>
+        <div class="col-xs-4" style="height:140px; background-color: lightcoral;"
+          v-myon:mouseenter="mouseenter"
+          v-myon:mouseleave="mouseleave"></div>
       </div>
     </div>
   </div>
@@ -25,6 +29,12 @@ export default {
   methods: {
     clicked: function() {
       alert('I was clicked');
+    },
+    mouseenter: function() {
+      console.log('mouse enetered');
+    },
+    mouseleave: function() {
+      console.log('mouse leave');
     }
   }
 }
