@@ -16,8 +16,9 @@ export default {
   directives: {
     myon: {
       bind: function(el, binding, vnode) {
-        if (binding.arg === 'click') {
-          el.onclick = binding.value        }
+        const eventType = binding.arg;
+        const fn = binding.value
+        el.addEventListener(eventType, fn);
       }
     }
   },
