@@ -13,5 +13,8 @@ const fruitMixin = {
         return regExp.test(item);
       });
     }
+  },
+  created() {
+    console.log('Created');
   }
 }
