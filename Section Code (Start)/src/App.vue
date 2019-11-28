@@ -10,6 +10,10 @@
         <div class="alert alert-info"
              v-if="show">This is some Info</div>
         </transition>
+        <transition name="slide">
+        <div class="alert alert-info"
+             v-if="show">This is some Info</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -37,5 +41,31 @@ export default {
 .fade-leave-active {
   transition: opacity 0.71s ease;
   opacity: 0;
+}
+.slide-enter {
+}
+.slide-enter-active {
+  animation: slide-in .71s ease;
+}
+.slide-leave {
+}
+.slide-leave-active {
+  animation: slide-out .71s ease;
+}
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 </style>
