@@ -17,7 +17,7 @@
         <div class="alert alert-info"
              v-if="show">This is some Info</div>
         </transition>
-        <transition :name="alertAnimation" type="animation">
+        <transition name="slide" type="animation" appear>
         <div class="alert alert-info"
              v-if="show">This is some Info</div>
         </transition>
@@ -30,6 +30,12 @@
           leave-active-class="animated shake">
         <div class="alert alert-info"
              v-show="show">This is some Info</div>
+        </transition>
+        <transition :name="alertAnimation" model="out-in">
+        <div class="alert alert-info" key="info"
+             v-if="show">This is some Info</div>
+        <div class="alert alert-warning" key="out"
+             v-else>This is some Alert</div>
         </transition>
       </div>
     </div>
@@ -71,7 +77,7 @@ export default {
 }
 .slide-leave-active {
   animation: slide-out .71s ease-out;
-  transition: opacity 3s ease;
+  transition: opacity 1s ease;
   opacity: 0;
 }
 @keyframes slide-in {
