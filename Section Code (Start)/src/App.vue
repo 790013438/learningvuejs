@@ -14,6 +14,10 @@
         <div class="alert alert-info"
              v-if="show">This is some Info</div>
         </transition>
+        <transition name="fade" appear>
+        <div class="alert alert-info"
+             v-if="show">This is some Info</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@
 export default {
   data() {
     return {
-      show: false
+      show: true
     };
   }
 }
@@ -34,7 +38,7 @@ export default {
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity .61s ease;
+  transition: opacity .79s ease-in;
 }
 .fade-leave {
 }
@@ -43,6 +47,7 @@ export default {
   opacity: 0;
 }
 .slide-enter {
+  opacity: 0;
 }
 .slide-enter-active {
   animation: slide-in .71s ease;
