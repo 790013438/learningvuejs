@@ -38,7 +38,7 @@
              v-else>This is some Alert</div>
         </transition>
         <br/><br/>
-        <button @click="load = !load" class="btn btn-primary">Load or Hide</button>
+        <button @click="load = !load" class="btn btn-primary">Load / Remove Element</button>
         <br/><br/>
         <transition
         @before-enter="beforeEnter"
@@ -52,19 +52,33 @@
         :css="false">
         <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
         </transition>
+
+        <br/><br/>
+        <button class="btn btn-primary"
+          @click="selectedComponent = selectedComponent === 'appSuccessAlert' ? 'appErrorAlert' : 'appSuccessAlert'">shift Component</button>
+        <br/><br/>
+        <transition :name="alertAnimation" mode="out-in">
+        <keep-alive>
+          <component :is="selectedComponent"></component>
+        </keep-alive>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SuccessAlert from './components/SuccessAlert.vue'
+import ErrorAlert from './components/ErrorAlert.vue'
+
 export default {
   data() {
     return {
       show: false,
       load: true,
       alertAnimation: 'fade',
-      divWidth: 300
+      divWidth: 300,
+      selectedComponent: 'appSuccessAlert'
     };
   },
   methods: {
@@ -116,6 +130,10 @@ export default {
     leaveCancelled() {
       console.log('leave cancelled');
     }
+  },
+  components: {
+    appErrorAlert: ErrorAlert,
+    appSuccessAlert: SuccessAlert
   }
 }
 </script>
@@ -125,7 +143,7 @@ export default {
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity .79s ease-in;
+  transition: opacity .75s ease-in;
 }
 .fade-leave {
 }
