@@ -44,10 +44,13 @@
         @before-enter="beforeEnter"
         @enter="enter"
         @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
         @before-leave="beforeLeave"
         @leave="leave"
-        @after-leave="afterLeave">
-        <div class="alert alert-info" v-if="load">This is some Info</div>
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled"
+        :css="false">
+        <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
         </transition>
       </div>
     </div>
@@ -60,27 +63,58 @@ export default {
     return {
       show: false,
       load: true,
-      alertAnimation: 'fade'
+      alertAnimation: 'fade',
+      divWidth: 300
     };
   },
   methods: {
-    beforeEnter: function() {
+    beforeEnter: function(el) {
       console.log('before enter');
+      el.style.width = '0px';
     },
-    enter() {
+    enter(el, done) {
       console.log('enter');
+      let direct = 1;
+      let count = 1;
+      let interval = setInterval(()=> {
+        this.divWidth += 20 * direct
+        el.style.width = this.divWidth + 'px';
+        if (count > 20) {
+          clearInterval(interval)
+          done();
+        }
+        count++;
+      }, 20);
     },
     afterEnter() {
       console.log('after enter');
     },
-    beforeLeave() {
-      console.log('before leave');
+    enterCancelled() {
+      console.log('enter cancelled');
     },
-    leave() {
-      console.log('leave');
+    beforeLeave(el) {
+      console.log('before leave');
+      el.style.width = '300px'
+    },
+    leave(el, done) {
+      console.log('enter');
+      let direct = -1;
+      let count = 1;
+      let interval = setInterval(()=> {
+        this.divWidth += 20 * direct
+        el.style.width = this.divWidth + 'px';
+        if (count > 20) {
+          clearInterval(interval)
+          done();
+        }
+        count++;
+      }, 20);
     },
     afterLeave() {
       console.log('after Leave');
+    },
+    leaveCancelled() {
+      console.log('leave cancelled');
     }
   }
 }
