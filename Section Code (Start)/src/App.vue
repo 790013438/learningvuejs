@@ -37,6 +37,18 @@
         <div class="alert alert-warning" key="out"
              v-else>This is some Alert</div>
         </transition>
+        <br/><br/>
+        <button @click="load = !load" class="btn btn-primary">Load or Hide</button>
+        <br/><br/>
+        <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave">
+        <div class="alert alert-info" v-if="load">This is some Info</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -46,9 +58,30 @@
 export default {
   data() {
     return {
-      show: true,
+      show: false,
+      load: true,
       alertAnimation: 'fade'
     };
+  },
+  methods: {
+    beforeEnter: function() {
+      console.log('before enter');
+    },
+    enter() {
+      console.log('enter');
+    },
+    afterEnter() {
+      console.log('after enter');
+    },
+    beforeLeave() {
+      console.log('before leave');
+    },
+    leave() {
+      console.log('leave');
+    },
+    afterLeave() {
+      console.log('after Leave');
+    }
   }
 }
 </script>
