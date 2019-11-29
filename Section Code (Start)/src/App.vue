@@ -148,21 +148,21 @@ export default {
 .fade-leave {
 }
 .fade-leave-active {
-  transition: opacity 0.71s ease;
+  transition: opacity 0.71s ease-out;
   opacity: 0;
 }
 .slide-enter {
   opacity: 0;
 }
 .slide-enter-active {
-  animation: slide-in .71s ease;
-  transition: opacity 1s ease;
+  animation: slide-in .71s ease-in;
+  transition: opacity 1s ease-in;
 }
 .slide-leave {
 }
 .slide-leave-active {
   animation: slide-out .71s ease-out;
-  transition: opacity 1s ease;
+  transition: opacity 1s ease-out;
   opacity: 0;
 }
 @keyframes slide-in {
