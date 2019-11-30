@@ -62,6 +62,14 @@
           <component :is="selectedComponent"></component>
         </keep-alive>
         </transition>
+
+        <button class="btn btn-primary"
+                @click="addItem()">Add Item</button>
+        <br/><br/>
+        <ul class="list-group">
+          <li v-for="(num, index) in nums" class="list-group-item" style="cursor: pointer"
+            @click="removeItem(index)">{{ num }}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -78,7 +86,8 @@ export default {
       load: true,
       alertAnimation: 'fade',
       divWidth: 300,
-      selectedComponent: 'appSuccessAlert'
+      selectedComponent: 'appSuccessAlert',
+      nums: [1, 2, 3, 4, 5]
     };
   },
   methods: {
@@ -129,6 +138,20 @@ export default {
     },
     leaveCancelled() {
       console.log('leave cancelled');
+    },
+    addItem() {
+      let random = Math.floor(Math.random() * this.nums.length);
+      console.log(random)
+      if (random === 0) {
+        this.nums.unshift(random);
+      } else {
+        let snipp = this.nums.slice(0, random);
+        snipp.push(random)
+        this.nums = snipp.concat(this.nums.slice(random));
+      }
+    },
+    removeItem(index) {
+      this.nums.splice(index, 1);
     }
   },
   components: {
