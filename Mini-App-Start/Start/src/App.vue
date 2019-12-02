@@ -8,9 +8,14 @@
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-
-        <component :is="mode" @answered="answered($event)" @confirmed="mode = 'app-question'"></component>
-
+          <transition
+            enter-active-class="force-animated flipInY"
+            leave-active-class="force-animated flipOutY"
+            mode="out-in">
+          <keep-alive>
+            <component :is="mode" @answered="answered($event)" @confirmed="mode = 'app-question'"></component>
+          </keep-alive>
+          </transition>
       </div>
     </div>
   </div>
@@ -42,4 +47,11 @@ export default {
   }
 }
 </script>
-
+<style scoped>
+.force-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+</style>

@@ -84,7 +84,7 @@
                 this.$emit('answered', isCorrect);
             }
         },
-        created() {
+        activated() {
             this.generateQuestion();
         }
     }
