@@ -67,8 +67,10 @@
                 @click="addItem()">Add Item</button>
         <br/><br/>
         <ul class="list-group">
+          <transition-group :name="alertAnimation">
           <li v-for="(num, index) in nums" class="list-group-item" style="cursor: pointer"
-            @click="removeItem(index)">{{ num }}</li>
+            @click="removeItem(index)" :key="num">{{ num }}</li>
+          </transition-group>
         </ul>
       </div>
     </div>
@@ -141,14 +143,7 @@ export default {
     },
     addItem() {
       let random = Math.floor(Math.random() * this.nums.length);
-      console.log(random)
-      if (random === 0) {
-        this.nums.unshift(random);
-      } else {
-        let snipp = this.nums.slice(0, random);
-        snipp.push(random)
-        this.nums = snipp.concat(this.nums.slice(random));
-      }
+      this.nums.splice(random, 0, this.nums.length + 1);
     },
     removeItem(index) {
       this.nums.splice(index, 1);
@@ -187,6 +182,10 @@ export default {
   animation: slide-out .71s ease-out;
   transition: opacity 1s ease-out;
   opacity: 0;
+  position: absolute;
+}
+.slide-move {
+  transition: transform 1s;
 }
 @keyframes slide-in {
   from {
