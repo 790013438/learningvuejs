@@ -14,6 +14,8 @@
           <button class="btn btn-primary btn-block"
                   @click.prevent="onSubmit">Submit</button>
         </form>
+        <hr/>
+        <button class="btn btn-primary btn-block" @click="fetchData">Get Data</button>
       </div>
     </div>
   </div>
@@ -31,7 +33,25 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      console.log(this.user)
+      this.$http.post('https://vuejs-http-61e6e.firebaseio.com/data.json', this.user)
+        .then(response => {
+          console.log(response)
+        }, error => {
+          console.log(error)
+        });
+      // 异步
+      console.log('已提交')
+    },
+    fetchData: function() {
+      this.$http.get('https://vuejs-http-61e6e.firebaseio.com/data.json')
+        .then(response => {
+          // response 提供了转化为json的方法
+          console.log(response);
+          // 转换为json
+          console.log(response.json());
+        }, error => {
+          console.log(error);
+        });
     }
   }
 }
