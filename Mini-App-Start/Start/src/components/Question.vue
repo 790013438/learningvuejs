@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     onAnswer(correct) {
-      this.$emit('anwsered', correct);
+      this.$emit('answered', correct);
     },
     generatedNum: function() {
       let firstNum = this.randomValue(5, 100);

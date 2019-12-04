@@ -6,11 +6,13 @@
       </div>
     </div>
     <hr/>
+    <transition name="flip" mode="out-in">
     <keep-alive>
       <component :is="selectCmp"
-            @anwsered="anwsered($event)"
+            @answered="answered($event)"
             @continue="selectCmp = 'appQuestion'"></component>
     </keep-alive>
+    </transition>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
     };
   },
   methods: {
-    anwsered: function(event) {
+    answered: function(event) {
       if (event) {
         this.selectCmp = 'appAnswer';
       } else {
@@ -39,4 +41,31 @@ export default {
   }
 }
 </script>
-<style></style>
+<style>
+.flip-enter {
+}
+.flip-enter-active {
+  animation: flip-in 500ms ease-in;
+}
+.flip-leave {
+}
+.flip-leave-active {
+  animation: flip-out 500ms ease-out;
+}
+@keyframes flip-in {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flip-out {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(90deg);
+  }
+}
+</style>
