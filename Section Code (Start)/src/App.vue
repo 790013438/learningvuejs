@@ -16,6 +16,10 @@
         </form>
         <hr/>
         <button class="btn btn-primary btn-block" @click="fetchData">Get Data</button>
+        <br/>
+        <ul class="list-group">
+          <li class="list-item" v-for="u in users">{{u.username}} - {{u.mail}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -28,7 +32,8 @@ export default {
       user: {
         username: '',
         mail: ''
-      }
+      },
+      users: []
     };
   },
   methods: {
@@ -46,12 +51,20 @@ export default {
       this.$http.get('https://vuejs-http-61e6e.firebaseio.com/data.json')
         .then(response => {
           // response 提供了转化为json的方法
-          console.log(response);
-          // 转换为json
+          // 由于异步，返回的对象是Promise
           console.log(response.json());
+          return response.json();
         }, error => {
           console.log(error);
+        })
+        .then(data => {
+          // promise 通过then获取数据
+          console.log(data)
+          for (let key in data) {
+            this.users.push(data[key]);
+          }
         });
+      console.log('正在获取数据请等待')
     }
   }
 }
