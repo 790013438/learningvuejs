@@ -52,7 +52,7 @@ export default {
         .then(response => {
           // response 提供了转化为json的方法
           // 由于异步，返回的对象是Promise
-          console.log(response.json());
+          console.log('异步', response.json());
           return response.json();
         }, error => {
           console.log(error);
