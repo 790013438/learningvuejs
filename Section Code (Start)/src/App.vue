@@ -18,7 +18,7 @@
         <button class="btn btn-primary btn-block" @click="fetchData">Get Data</button>
         <br/>
         <ul class="list-group">
-          <li class="list-item" v-for="u in users">{{u.username}} - {{u.mail}}</li>
+          <li class="list-group-item" v-for="u in users">{{u.username}} - {{u.mail}}</li>
         </ul>
       </div>
     </div>
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     onSubmit: function() {
-      this.$http.post('https://vuejs-http-61e6e.firebaseio.com/data.json', this.user)
+      this.$http.post('', this.user)
         .then(response => {
           console.log(response)
         }, error => {
@@ -48,7 +48,7 @@ export default {
       console.log('已提交')
     },
     fetchData: function() {
-      this.$http.get('https://vuejs-http-61e6e.firebaseio.com/data.json')
+      this.$http.get('')
         .then(response => {
           // response 提供了转化为json的方法
           // 由于异步，返回的对象是Promise
