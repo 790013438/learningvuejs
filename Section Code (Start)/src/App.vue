@@ -17,6 +17,8 @@
         <hr/>
         <button class="btn btn-primary btn-block" @click="fetchData">Get Data</button>
         <br/>
+        <input class="form-control" v-model="node" />
+        <br/>
         <ul class="list-group">
           <li class="list-group-item" v-for="u in users">{{u.username}} - {{u.mail}}</li>
         </ul>
@@ -34,7 +36,8 @@ export default {
         mail: ''
       },
       users: [],
-      resource: {}
+      resource: {},
+      node: 'data'
     };
   },
   methods: {
@@ -51,18 +54,26 @@ export default {
       console.log('已提交')
     },
     fetchData: function() {
-      this.$http.get('data.json')
-        .then(response => {
-          // response 提供了转化为json的方法
-          // 由于异步，返回的对象是Promise
-          console.log('异步', response.json());
-          return response.json();
-        }, error => {
-          console.log(error);
-        })
+//      this.$http.get('data.json')
+//        .then(response => {
+//          // response 提供了转化为json的方法
+//          // 由于异步，返回的对象是Promise
+//          console.log('异步', response.json());
+//          return response.json();
+//        }, error => {
+//          console.log(error);
+//        })
+//        .then(data => {
+//          // promise 通过then获取数据
+//          console.log(data)
+//          for (let key in data) {
+//            this.users.push(data[key]);
+//          }
+//        });
+      this.resource.getData({node: this.node}).then(response=>{
+        return response.json();
+      })
         .then(data => {
-          // promise 通过then获取数据
-          console.log(data)
           for (let key in data) {
             this.users.push(data[key]);
           }
@@ -72,9 +83,10 @@ export default {
   },
   created() {
     const customActions = {
-      saveAlt: {method: 'POST', url: 'alternative.json'}
+      saveAlt: {method: 'POST', url: 'alternative.json'},
+      getData: {method: 'GET'}
     }
-    this.resource = this.$resource('data.json', {}, customActions)
+    this.resource = this.$resource('{node}.json', {}, customActions)
   }
 }
 </script>
