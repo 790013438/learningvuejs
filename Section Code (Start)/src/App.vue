@@ -33,22 +33,24 @@ export default {
         username: '',
         mail: ''
       },
-      users: []
+      users: [],
+      resource: {}
     };
   },
   methods: {
     onSubmit: function() {
-      this.$http.post('', this.user)
-        .then(response => {
-          console.log(response)
-        }, error => {
-          console.log(error)
-        });
+//      this.$http.post('', this.user)
+//        .then(response => {
+//          console.log(response)
+//        }, error => {
+//          console.log(error)
+//        });
+      this.resource.save({}, this.user);
       // 异步
       console.log('已提交')
     },
     fetchData: function() {
-      this.$http.get('')
+      this.$http.get('data.json')
         .then(response => {
           // response 提供了转化为json的方法
           // 由于异步，返回的对象是Promise
@@ -66,6 +68,9 @@ export default {
         });
       console.log('正在获取数据请等待')
     }
+  },
+  created() {
+    this.resource = this.$resource('data.json')
   }
 }
 </script>
