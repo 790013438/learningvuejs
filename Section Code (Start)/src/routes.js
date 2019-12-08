@@ -5,5 +5,5 @@ export {routes}
 
 const routes = [
   {path: '', component: Home},
-  {path:'/User', compontent: User}
+  {path: '/user', component: User}
 ]
