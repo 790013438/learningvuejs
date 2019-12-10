@@ -10,11 +10,6 @@
 
 <script>
 export default {
-  data: function() {
-    return {
-      id: this.$route.params.id
-    };
-  },
   methods: {
     navHome: function() {
       this.$router.push('/');
