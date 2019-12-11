@@ -21,5 +21,9 @@ const routes = [
     {path: ':id', component:UserDetail},
     {path: ':id/edit', component: UserEdit, name: 'userEdit'}
   ]},
-  {path: '/redirect-me', redirect: '/user'}
+  {path: '/redirect-me', redirect: '/user'},
+  {path: '/redirect-me-2', redirect: {name: 'userEdit',
+    params: {id: 3},
+    query: {locale: 'cn', q: 100}
+  }}
 ]
