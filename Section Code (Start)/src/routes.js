@@ -25,5 +25,6 @@ const routes = [
   {path: '/redirect-me-2', redirect: {name: 'userEdit',
     params: {id: 3},
     query: {locale: 'cn', q: 100}
-  }}
+  }},
+  {path: '*', redirect: '/'}
 ]
