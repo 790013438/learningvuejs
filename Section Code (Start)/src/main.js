@@ -8,7 +8,14 @@ const router = new VueRouter({
   routes,
   mode: 'history',
   scrollBehavior(to, from, savedPosition) {
-    return {x:0, y: 700}
+    // 如果上次页面到hash fragment, 本次在首页，按浏览器的back，放回上次页面的hash瞄点
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return {selector: to.hash};
+    }
+    return {x:0, y: 0}
   }
 })
 
