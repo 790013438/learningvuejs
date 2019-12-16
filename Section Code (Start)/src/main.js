@@ -21,7 +21,11 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   console.log('Global beforeEach');
-  next();
+  if (to.name !== 'userEdit') {
+    next({name: 'userEdit', params: {id: 5}, query: {q: 100, locale: 'cn'}, hash: '#data'});
+  } else {
+    next();
+  }
 })
 
 new Vue({
