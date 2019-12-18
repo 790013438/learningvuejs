@@ -8,7 +8,7 @@ const router = new VueRouter({
   routes,
   mode: 'history',
   scrollBehavior(to, from, savedPosition) {
-    // 如果上次页面到hash fragment, 本次在首页，按浏览器的back，放回上次页面的hash瞄点
+    // 如果上次页面到hash fragment, 本次在首页，按浏览器的back，返回上次页面的hash瞄点
     if (savedPosition) {
       return savedPosition;
     }
@@ -21,11 +21,12 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   console.log('Global beforeEach');
-  if (to.name !== 'userEdit') {
-    next({name: 'userEdit', params: {id: 5}, query: {q: 100, locale: 'cn'}, hash: '#data'});
-  } else {
-    next();
-  }
+  // if (to.name !== 'userEdit') {
+  //   next({name: 'userEdit', params: {id: 5}, query: {q: 100, locale: 'cn'}, hash: '#data'});
+  // } else {
+  //   next();
+  // }
+  next();
 })
 
 new Vue({
