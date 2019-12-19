@@ -21,6 +21,11 @@ export default {
         hash: '#data'
       }
     };
+  },
+  beforeRoutEnter(to, from, next) {
+    next((vm) => {
+      console.log(vm.link);
+    })
   }
 }
 </script>
