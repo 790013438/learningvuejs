@@ -22,7 +22,12 @@ export default {
       }
     };
   },
-  beforeRoutEnter(to, from, next) {
+  beforeRouteEnter(to, from, next) {
+    if(true) {
+      next();
+    } else {
+      next(false);
+    }
     next((vm) => {
       console.log(vm.link);
     })
