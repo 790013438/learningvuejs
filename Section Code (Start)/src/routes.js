@@ -14,19 +14,19 @@ const User = resolve => {
 const UserStart = resolve => {
   require.ensure(['./components/user/UserStart.vue'], () => {
     resolve(require('./components/user/UserStart.vue'))
-  });
+  }, 'user');
 }
 const UserDetail = resolve => {
   require.ensure(['./components/user/UserDetail.vue'], () => {
     resolve(require('./components/user/UserDetail.vue'));
-  });
+  }, 'user');
 }
 
 const UserEdit = resolve => {
   require.ensure(['./components/user/UserDetail.vue'], () => {
     // Promise 的resolve
     resolve(require('./components/user/UserEdit.vue'))
-  });
+  }, 'user');
 }
 
 export {routes}
