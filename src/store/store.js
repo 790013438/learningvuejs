@@ -10,5 +10,9 @@ export const store = new Vuex.Store({
   getters: {
     doubleCounter: state => (state.counter * 2),
     clickString: state => `${state.counter} Clicks`
+  },
+  mutations: {
+    increase: state => {state.counter++;},
+    decrease: state => {state.counter--}
   }
 })
