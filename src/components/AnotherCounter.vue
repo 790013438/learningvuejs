@@ -1,19 +1,16 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="increment">Increment</button>
-    <button class="btn btn-primary" @click="decrement">Decrement</button>
+    <button class="btn btn-primary" @click="increase">Increment</button>
+    <button class="btn btn-primary" @click="decrease">Decrement</button>
   </div>
 </template>
 
 <script>
+import {mapMutations} from 'Vuex'
+
 export default {
   methods: {
-    increment() {
-      this.$store.commit('increase');
-    },
-    decrement() {
-      this.$store.commit('decrease');
-    }
+    ...mapMutations(['increase', 'decrease'])
   }
 }
 </script>
