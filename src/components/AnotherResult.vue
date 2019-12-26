@@ -9,6 +9,8 @@
 import {mapGetters} from 'Vuex'
 
 export default {
-  computed: mapGetters(['doubleCounter', 'clickString'])
+  computed: {
+    ...mapGetters(['doubleCounter', 'clickString'])
+  }
 }
 </script>
