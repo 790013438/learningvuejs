@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import {mapMutations} from 'Vuex'
+import {mapActions} from 'Vuex'
 
 export default {
   methods: {
-    ...mapMutations(['increase', 'decrease'])
+    ...mapActions(['increase', 'decrease'])
   }
 }
 </script>
