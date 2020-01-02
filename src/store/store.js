@@ -12,27 +12,37 @@ export const store = new Vuex.Store({
     clickString: state => `${state.counter} Clicks`
   },
   mutations: {
-    increase: (state, by) => {
-      state.counter += by;
+    increase: (state, payload) => {
+      if(payload) {
+        state.counter += payload;
+      } else {
+        state.counter++;
+      }
     },
-    decrease: state => {state.counter--}
+    decrease: (state, payload) => {
+      if (payload) {
+        state.counter -= Number(payload);
+      } else {
+        state.counter--;
+      }
+    }
   },
   actions: {
-    increase: (context) => {
-      context.commit('increase');
+    increase: (context, payload) => {
+      context.commit('increase', payload);
     },
     decrease: ({commit}) => {
       commit('decrease');
     },
-    asycnIncrease: ({commit}, by) => {
+    asycnIncrease: ({commit}, payload) => {
       setTimeout(function() {
-        commit('increase', by)
-      },1000);
+        commit('increase', payload.by)
+      }, payload.timeout);
     },
-    asycnDecrease: ({commit}) => {
+    asycnDecrease: ({commit}, payload) => {
       setTimeout(()=> {
-        commit('decrease');
-      }, 1000);
+        commit('decrease', payload.by);
+      }, payload.timeout);
     }
   }
 })
