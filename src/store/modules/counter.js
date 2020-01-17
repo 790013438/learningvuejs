@@ -1,9 +1,11 @@
+import * as types from '../types.js'
+
 const state = {
   counter: 0
 }
 const getters = {
-  doubleCounter: state => (state.counter * 2),
-  clickString: state => `${state.counter} Clicks`,
+  [types.DOUBLE_COUNTER]: state => (state.counter * 2),
+  [types.CLICK_STRING]: state => `${state.counter} Clicks`,
 }
 const mutations = {
   increase: (state, payload) => {

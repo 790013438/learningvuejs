@@ -7,10 +7,14 @@
 
 <script>
 import {mapGetters} from 'Vuex'
+import * as types from '../store/types.js'
 
 export default {
   computed: {
-    ...mapGetters(['doubleCounter', 'clickString'])
+    ...mapGetters({
+      doubleCounter: types.DOUBLE_COUNTER,
+      clickString: types.CLICK_STRING
+    })
   }
 }
 </script>
