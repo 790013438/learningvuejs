@@ -10,7 +10,7 @@ import {mapActions} from 'vuex'
 
 export default {
   methods: {
-    ...mapActions({increment: 'increase', decrement: 'decrease'})
+    ...mapActions('counter', {increment: 'increase', decrement: 'decrease'})
   }
 }
 </script>

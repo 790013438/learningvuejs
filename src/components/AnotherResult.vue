@@ -10,7 +10,7 @@ import {mapGetters} from 'Vuex'
 
 export default {
   computed: {
-    ...mapGetters(['doubleCounter', 'clickString'])
+    ...mapGetters('counter', ['doubleCounter', 'clickString'])
   }
 }
 </script>

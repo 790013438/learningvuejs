@@ -10,7 +10,7 @@ import {mapActions} from 'Vuex'
 
 export default {
   methods: {
-    ...mapActions({increment: 'asycnIncrease', decrease: 'asycnDecrease'})
+    ...mapActions('counter', {increment: 'asycnIncrease', decrease: 'asycnDecrease'})
   }
 }
 </script>
