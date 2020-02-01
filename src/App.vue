@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <AppHeader></AppHeader>
-    <router-view :name="'header'"></router-view>
+    <router-view :name="'Home'"></router-view>
   </div>
 </template>
 

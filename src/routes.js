@@ -1,9 +1,10 @@
 import header from './components/header.vue'
+import Home from './components/home.vue'
 
 export const routes = [{
-  path:'/home',
+  path:'',
   components: {
-    default: header,
-    name: header
+    default: Home,
+    name: Home
   }
 }]
