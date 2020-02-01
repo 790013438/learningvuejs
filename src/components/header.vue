@@ -1,6 +1,12 @@
 <template>
   <header class="well header">
     <span class="title">Stock Trader</span>
+    <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li>Portfolio</li>
+      <li>Stocks</li>
+    </ul>
+    </div>
   </header>
 </template>
 
